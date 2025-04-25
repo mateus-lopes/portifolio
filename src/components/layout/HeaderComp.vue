@@ -46,7 +46,11 @@ onUnmounted(() => {
 <template>
   <header :class="{ shrink: isShrunk }">
     <div class="logo">
-      <h1>mateus-lopes</h1>
+      <h1>
+        <a href="https://github.com/mateus-lopes" target="_blank" class="no-link">
+          mateus-lopes
+        </a>
+      </h1>
     </div>
 
     <nav class="navigation">
@@ -175,5 +179,10 @@ header.shrink .logo h1 {
 
 .currentDot {
   background-color: cornflowerblue;
+}
+
+.no-link {
+  text-decoration: none;
+  color: #000;
 }
 </style>
