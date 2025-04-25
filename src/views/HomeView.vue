@@ -10,13 +10,13 @@ import FooterComp from '../components/layout/FooterComp.vue'
                 <div class="highlight-content">
                     <p>Welcome! I am a beginner developer</p>
                     <h1>
-                        My <span class="underline">big</span> challenges
+                        My <span class="underline">biggest</span> challenges
                         <div class="decoration t1">
                             <p>8</p>
                         </div>
                     </h1>
                     <h1>
-                        and <span class="bigbig">tiny</span> projects
+                        that became <span class="text-primary">small</span> projects
                         <div class="decoration t2">
                             <p>🃏</p>
                         </div>
@@ -91,12 +91,16 @@ h1 {
   position: relative;
 }
 
+.text-primary {
+  color: cornflowerblue;
+}
+
 /* highlight 1 */
 
 .highlight {
   position: relative;
   width: 75%;
-  margin: 0 auto;
+  margin: 5em auto 0;
   height: 70vh;
 }
 

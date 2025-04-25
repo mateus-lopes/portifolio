@@ -2,92 +2,116 @@
 import { ref, onMounted, onUnmounted } from 'vue';
 
 const currentSection = ref('');
+const isShrunk = ref(false);
+
+const updateCurrentSection = (entries: IntersectionObserverEntry[]) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      currentSection.value = entry.target.id;
+    }
+  });
+};
+
+const handleScroll = () => {
+  isShrunk.value = window.scrollY > 50;
+};
+
+let observer: IntersectionObserver;
 
 onMounted(() => {
   const sections = document.querySelectorAll('section');
-  const observer = new IntersectionObserver(
-    entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          currentSection.value = entry.target.id;
-        }
-      });
-    },
-    { threshold: 0.6 }
-  );
+
+  observer = new IntersectionObserver(updateCurrentSection, {
+    threshold: 0.6,
+  });
 
   sections.forEach(section => observer.observe(section));
+  window.addEventListener('scroll', handleScroll);
+});
 
-  // cleanup
-  onUnmounted(() => observer.disconnect());
+onUnmounted(() => {
+  observer?.disconnect();
+  window.removeEventListener('scroll', handleScroll);
 });
 </script>
 
 
 <template>
-    <header>
-            <div class="div-logo">
-                <h1>mateus-lopes</h1>
-            </div>
-            <div class="div-navegation">
-                <nav>
-                    <ul>
-                        <li><a href="#home" class="link" :class="{ current: currentSection === 'home' }">Homepage</a></li>
-                        <li><a href="#about" class="link" :class="{ current: currentSection === 'about' }">About me</a></li>
-                        <li><a href="#projects" class="link" :class="{ current: currentSection === 'projects' }">My projects</a></li>
-                    </ul>
-                </nav>
-            </div>
-            <div class="div-dots">
-                <a href="#home" class="dot" :class="{ currentDot: currentSection === 'home' }"></a>
-                <a href="#about" class="dot" :class="{ currentDot: currentSection === 'about' }"></a>
-                <a href="#projects" class="dot" :class="{ currentDot: currentSection === 'projects' }"></a>
-            </div>
-        </header>
+  <header :class="{ shrink: isShrunk }">
+    <div class="logo">
+      <h1>mateus-lopes</h1>
+    </div>
+
+    <nav class="navigation">
+      <ul>
+        <li><a href="#home" class="link" :class="{ current: currentSection === 'home' }">Homepage</a></li>
+        <li><a href="#about" class="link" :class="{ current: currentSection === 'about' }">About me</a></li>
+        <li><a href="#projects" class="link" :class="{ current: currentSection === 'projects' }">My projects</a></li>
+      </ul>
+    </nav>
+
+    <div class="section-dots">
+      <a href="#home" class="dot" :class="{ currentDot: currentSection === 'home' }"></a>
+      <a href="#about" class="dot" :class="{ currentDot: currentSection === 'about' }"></a>
+      <a href="#projects" class="dot" :class="{ currentDot: currentSection === 'projects' }"></a>
+    </div>
+  </header>
 </template>
 
-<style scoped lang="css">
-
-/* header */
+<style scoped>
+body {
+  padding-top: 200px;
+}
 
 header {
-  width: 75%;
-  height: 100px;
-  display: flex;
-  justify-content: between;
-  align-items: center;
-  margin: 0 auto;
-}
-
-.div-logo {
-  min-width: 20%;
-}
-
-.div-logo h1 {
-  font-size: 1.6em !important;
-  font-weight: 200;
-}
-
-.div-navegation {
   width: 100%;
-}
-
-.div-navegation nav ul {
-  list-style: none;
-  margin: 1em;
+  height: 100px;
+  padding: 0 6em;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: white;
   display: flex;
-  justify-content: end;
   align-items: center;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 0 transparent;
 }
 
-.div-navegation nav ul a {
-  margin: 0 0.8em;
+header.shrink {
+  height: 70px;
+    box-shadow: 0 3px 10px rgba(59, 59, 59, 0.1);
+}
+
+.logo h1 {
+  font-size: 1.6em;
+  font-weight: 200;
+  transition: font-size 0.3s ease;
+}
+
+header.shrink .logo h1 {
+  font-size: 1.3em;
+}
+
+.navigation {
+  flex: 1;
+}
+
+.navigation ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.2em;
 }
 
 .link {
   text-decoration: none;
   color: #000;
   position: relative;
+  transition: all .2s ease-in-out;
 }
 
 .link::after {
@@ -105,52 +129,43 @@ header {
 }
 
 .current {
-  color: cornflowerblue !important;
+  color: cornflowerblue;
+  border-bottom: 2px solid pink;
 }
 
 @keyframes border {
-  0% {
+  0%, 100% {
     width: 0;
   }
   50% {
     width: 100%;
   }
-  100% {
-    width: 0;
-  }
 }
 
-.current {
-  color: cornflowerblue !important;
-  font-weight: bold;
-}
-
-.div-dots {
-    position: fixed;
-    top: 50%;
-    right: 2em;
-    transform: translateY(-50%);
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+.section-dots {
+  position: fixed;
+  top: 50%;
+  right: 2em;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .dot {
-    display: block;
-    width: 15px;
-    margin: .5em 0;
-    height: 15px;
-    background-color: #c3c3c3;
-    border-radius: 50%;
-    transition: background-color 0.3s ease;
+  width: 15px;
+  height: 15px;
+  margin: 0.5em 0;
+  background-color: #c3c3c3;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
 }
 
 .dot:hover {
-    background-color: #000;
+  background-color: #000;
 }
 
 .currentDot {
-    background-color: cornflowerblue;
+  background-color: cornflowerblue;
 }
-
 </style>
