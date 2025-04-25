@@ -1,26 +1,23 @@
 <script lang="ts" setup>
-import { useLayoutStore } from '../../../stores/layout';
+import { useLayoutStore } from '../../../stores/layout'
 
-const store = useLayoutStore();
+const store = useLayoutStore()
 </script>
 
 <template>
-    <ul>
-        <li
-          v-for="item in store.nav"
-            :key="item.id"
-        >
-          <a
-            :href="'#' + item.id"
-            class="link"
-            @click.prevent="item.btnAction ? item.btnAction() : store.scrollTo(item.id)"
-            :class="{ current: store.currentSection === item.id }"
-            :data-tooltip="item.text"
-        >
-          {{ item.text }}
-        </a>
+  <ul>
+    <li v-for="item in store.nav" :key="item.id">
+      <a
+        :href="'#' + item.id"
+        class="link"
+        @click.prevent="item.btnAction ? item.btnAction() : store.scrollTo(item.id)"
+        :class="{ current: store.currentSection === item.id }"
+        :data-tooltip="$t(item.id)"
+      >
+        {{ $t(item.id) }}
+      </a>
     </li>
-      </ul>
+  </ul>
 </template>
 
 <style scoped>
@@ -28,7 +25,7 @@ const store = useLayoutStore();
   text-decoration: none;
   color: #000;
   position: relative;
-  transition: color .2s ease-in-out;
+  transition: color 0.2s ease-in-out;
 }
 
 .link::after {
@@ -51,7 +48,8 @@ const store = useLayoutStore();
 }
 
 @keyframes border {
-  0%, 100% {
+  0%,
+  100% {
     width: 0;
   }
   50% {
@@ -59,7 +57,7 @@ const store = useLayoutStore();
   }
 }
 
- ul {
+ul {
   list-style: none;
   padding: 0;
   display: flex;

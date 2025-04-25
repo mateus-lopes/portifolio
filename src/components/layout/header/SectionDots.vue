@@ -1,19 +1,19 @@
 <script lang="ts" setup>
-import { useLayoutStore } from '../../../stores/layout';
+import { useLayoutStore } from '../../../stores/layout'
 
-const store = useLayoutStore();
+const store = useLayoutStore()
 </script>
 
 <template>
-    <a
-        v-for="item in store.nav"
-        :key="item.id"
-          :href="'#' + item.id"
-          class="dot"
-          @click.prevent="item.btnAction ? item.btnAction() : store.scrollTo(item.id)"
-          :class="{ currentDot: store.currentSection === item.id }"
-          :data-tooltip="item.text"
-    ></a>
+  <a
+    v-for="item in store.nav"
+    :key="item.id"
+    :href="'#' + item.id"
+    class="dot"
+    @click.prevent="item.btnAction ? item.btnAction() : store.scrollTo(item.id)"
+    :class="{ currentDot: store.currentSection === item.id }"
+    :data-tooltip="$t(item.id)"
+  ></a>
 </template>
 
 <style scoped>
@@ -45,7 +45,9 @@ const store = useLayoutStore();
   opacity: 0;
   white-space: nowrap;
   pointer-events: none;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
 }
 
 .dot:hover::before {

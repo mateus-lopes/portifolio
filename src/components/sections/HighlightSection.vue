@@ -1,25 +1,32 @@
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <section class="highlight" id="home">
     <div class="highlight-content">
-      <p>Welcome! I am a beginner developer</p>
+      <p> {{ $t('highlightSPAN') }} </p>
       <h1>
-        My <span class="underline">biggest</span> challenges
+        {{ $t('highlight1a') }} <span class="underline">{{ $t('highlight1b') }}</span> {{ $t('highlight1c') }}
         <div class="decoration t1"><p>8</p></div>
       </h1>
       <h1>
-        that became <span class="text-primary">small</span> projects
+        {{ $t('highlight2a') }} <span class="text-primary">{{ $t('highlight2b') }}</span> {{ $t('highlight2c') }} 
         <div class="decoration t2"><p>🃏</p></div>
       </h1>
     </div>
     <div class="social-medias">
       <ul>
-        <li><a href="#"><img class="icon" src="../../assets/imagens/icons/Group 2.png" alt=""></a></li>
-        <li><a href="#"><img class="icon" src="../../assets/imagens/icons/GMAIL.png" alt=""></a></li>
-        <li><a href="#"><img class="icon" src="../../assets/imagens/icons/Group 4.png" alt=""></a></li>
-        <li><a href="#"><img class="icon" src="../../assets/imagens/icons/GITHUB.png" alt=""></a></li>
+        <li>
+          <a href="#"><img class="icon" src="../../assets/images/icons/Group 2.png" alt="" /></a>
+        </li>
+        <li>
+          <a href="#"><img class="icon" src="../../assets/images/icons/GMAIL.png" alt="" /></a>
+        </li>
+        <li>
+          <a href="#"><img class="icon" src="../../assets/images/icons/Group 4.png" alt="" /></a>
+        </li>
+        <li>
+          <a href="#"><img class="icon" src="../../assets/images/icons/GITHUB.png" alt="" /></a>
+        </li>
       </ul>
     </div>
   </section>
@@ -119,7 +126,7 @@
   overflow: hidden;
   top: 0em;
   left: -1em;
-  }
+}
 
 .t1 p {
   font-size: small;

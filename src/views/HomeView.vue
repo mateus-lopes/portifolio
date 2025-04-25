@@ -16,6 +16,4 @@ import ProjectsSection from '../components/sections/ProjectsSection.vue'
   </main>
 </template>
 
-
-<style lang="css" scoped>
-</style>
+<style lang="css" scoped></style>

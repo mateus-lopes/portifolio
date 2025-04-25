@@ -1,5 +1,4 @@
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <section class="apps" id="projects">
@@ -8,17 +7,17 @@
       <p>Here are some of my projects that I have developed during my studies.</p>
       <div class="projects">
         <div class="project">
-          <img src="../assets/imagens/Group 1.png" alt="">
+          <img src="../assets/images/Group 1.png" alt="" />
           <h3>Project 1</h3>
           <p>Project description goes here.</p>
         </div>
         <div class="project">
-          <img src="../assets/imagens/Group 1.png" alt="">
+          <img src="../assets/images/Group 1.png" alt="" />
           <h3>Project 2</h3>
           <p>Project description goes here.</p>
         </div>
         <div class="project">
-          <img src="../assets/imagens/Group 1.png" alt="">
+          <img src="../assets/images/Group 1.png" alt="" />
           <h3>Project 3</h3>
           <p>Project description goes here.</p>
         </div>
@@ -30,10 +29,10 @@
 <style scoped>
 .apps {
   width: 75%;
-    margin: 0 auto;
+  margin: 0 auto;
 }
 .apps-content {
-    padding-top: 7em;
+  padding-top: 7em;
   display: flex;
   flex-direction: column;
   align-items: center;
