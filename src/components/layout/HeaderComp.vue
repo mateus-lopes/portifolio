@@ -16,6 +16,13 @@ const handleScroll = () => {
   isShrunk.value = window.scrollY > 50;
 };
 
+const scrollTo = (id: string) => {
+  const el = document.getElementById(id);
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+};
+
 let observer: IntersectionObserver;
 
 onMounted(() => {
@@ -44,16 +51,17 @@ onUnmounted(() => {
 
     <nav class="navigation">
       <ul>
-        <li><a href="#home" class="link" :class="{ current: currentSection === 'home' }">Homepage</a></li>
-        <li><a href="#about" class="link" :class="{ current: currentSection === 'about' }">About me</a></li>
-        <li><a href="#projects" class="link" :class="{ current: currentSection === 'projects' }">My projects</a></li>
+        <li><a href="#home" @click.prevent="scrollTo('home')" class="link" :class="{ current: currentSection === 'home' }">Homepage</a></li>
+        <li><a href="#about" @click.prevent="scrollTo('about')" class="link" :class="{ current: currentSection === 'about' }">About me</a></li>
+        <li><a href="#projects" @click.prevent="scrollTo('projects')" class="link" :class="{ current: currentSection === 'projects' }">My projects</a></li>
       </ul>
     </nav>
 
     <div class="section-dots">
-      <a href="#home" class="dot" :class="{ currentDot: currentSection === 'home' }"></a>
-      <a href="#about" class="dot" :class="{ currentDot: currentSection === 'about' }"></a>
-      <a href="#projects" class="dot" :class="{ currentDot: currentSection === 'projects' }"></a>
+      <a href="#home" class="dot" @click.prevent="scrollTo('home')" :class="{ currentDot: currentSection === 'home' }"></a>
+      <a href="#about" class="dot" @click.prevent="scrollTo('about')" :class="{ currentDot: currentSection === 'about' }"></a>
+      <a href="#projects" class="dot" @click.prevent="scrollTo('projects')" :class="{ currentDot: currentSection === 'projects' }"></a>
+      <a href="#contact" class="dot" @click.prevent="scrollTo('contact')" :class="{ currentDot: currentSection === 'contact' }"></a>
     </div>
   </header>
 </template>
