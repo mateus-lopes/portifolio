@@ -35,4 +35,103 @@
 </template>
 
 <style scoped lang="css">
+
+/* contact */
+
+.contact-content {
+  width: 75%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4em 0;
+}
+
+.contact-content h3 {
+  font-size: 1em;
+  color: gray;
+  font-weight: 300;
+}
+
+.contact-content h2{
+  display: block;
+  font-size: 4em;
+  color: #000;
+  font-weight: 700;
+  animation: text-shadow-swap 5s infinite ease-in-out;
+  padding-bottom: 1em;
+  margin: 0;
+}
+
+.contact-content h2:hover {
+  animation-play-state: paused;
+}
+
+@keyframes text-shadow-swap {
+  0% {
+      transform: translateX(-25px);
+      text-shadow: 80px 50px 0 #0000005a;
+  }
+  50% {
+      transform: translateX(50px);
+      text-shadow: -80px 50px 0 #0000005a;
+  }
+  100% {
+      transform: translateX(-25px);
+      text-shadow: 80px 50px 0 #0000005a;
+  }
+}
+
+/* footer */
+
+footer {
+  margin-bottom: 2em;
+}
+
+.main-footer {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.container {
+  border-top: 1px solid #0000001a;
+}
+
+.footer-navegation {
+  width: 75%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: between;
+  padding-top: 2em;
+}
+
+.footer-navegation p {
+  max-width: 40%;
+  margin: 0 auto 0 0;
+}
+
+.logo-footer {
+  width: 75%;
+  padding-bottom: 2em;
+  margin: 0 auto;
+}
+
+.fast-contact {
+  display: flex;
+  width: 75%;
+  margin: 0 auto;
+  justify-content: start;
+  gap: 1em;
+}
+
+footer nav li {
+  list-style: none;
+  margin: 1em 0;
+}
+
+
+.contact-content {
+  margin-top: calc(3*70vh);
+}
 </style>
