@@ -1,40 +1,23 @@
 <script lang="ts" setup>
-import { ref, onMounted, onUnmounted } from 'vue';
+import { onMounted, onUnmounted } from 'vue';
+import { useLayoutStore } from '../../stores/layout';
+import LinkNav from './header/LinksNav.vue';
+import SectionDot from './header/SectionDots.vue';
 
-const currentSection = ref('');
-const isShrunk = ref(false);
-
-const nav = [
-  { id: 'home', text: 'Homepage', action: () => scrollToTop() },
-  { id: 'about', text: 'About me' },
-  { id: 'projects', text: 'My projects' },
-  { id: 'contact', text: 'Contact' },
-];
+const store = useLayoutStore();
 
 let observer: IntersectionObserver;
-
 
 const updateCurrentSection = (entries: IntersectionObserverEntry[]) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      currentSection.value = entry.target.id;
+      store.setCurrentSection(entry.target.id);
     }
   });
 };
 
 const handleScroll = () => {
-  isShrunk.value = window.scrollY > 50;
-};
-
-const scrollTo = (id: string) => {
-  const el = document.getElementById(id);
-  if (el) {
-    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-};
-
-const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  store.setIsShrunk(window.scrollY > 50);
 };
 
 onMounted(() => {
@@ -55,7 +38,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <header :class="{ shrink: isShrunk }">
+  <header :class="{ shrink: store.isShrunk }">
     <div class="logo">
       <h1>
         <a href="https://github.com/mateus-lopes" target="_blank" class="no-link">
@@ -65,39 +48,17 @@ onUnmounted(() => {
     </div>
 
     <nav class="navigation">
-      <ul>
-        <li v-for="item in nav" :key="item.id">
-          <a
-            :href="'#' + item.id"
-            @click.prevent="item.action ? item.action() : scrollTo(item.id)"
-            class="link"
-            :class="{ current: currentSection === item.id }"
-          >
-            {{ item.text }}
-          </a>
-        </li>
-      </ul>
+      <LinkNav />
     </nav>
 
     <div class="section-dots">
-      <a
-        v-for="item in nav"
-        :key="item.id"
-        :href="'#' + item.id"
-        class="dot"
-        @click.prevent="item.action ? item.action() : scrollTo(item.id)"
-        :class="{ currentDot: currentSection === item.id }"
-        :data-tooltip="item.text"
-      ></a>
+      <SectionDot />
     </div>
   </header>
 </template>
 
-<style scoped>
-body {
-  padding-top: 200px;
-}
 
+<style scoped>
 header {
   width: 100%;
   height: 100px;
@@ -130,53 +91,6 @@ header.shrink .logo h1 {
   font-size: 1.3em;
 }
 
-.navigation {
-  flex: 1;
-}
-
-.navigation ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  justify-content: flex-end;
-  gap: 1.2em;
-}
-
-.link {
-  text-decoration: none;
-  color: #000;
-  position: relative;
-  transition: color .2s ease-in-out;
-}
-
-.link::after {
-  content: '';
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  width: 100%;
-  height: 2px;
-}
-
-.link:hover::after {
-  background-color: pink;
-  animation: border 2s infinite;
-}
-
-.current {
-  color: cornflowerblue;
-  border-bottom: 2px solid pink;
-}
-
-@keyframes border {
-  0%, 100% {
-    width: 0;
-  }
-  50% {
-    width: 100%;
-  }
-}
-
 .section-dots {
   position: fixed;
   top: 50%;
@@ -186,40 +100,8 @@ header.shrink .logo h1 {
   flex-direction: column;
 }
 
-.dot {
-  width: 15px;
-  height: 15px;
-  margin: 0.5em 0;
-  background-color: #c3c3c3;
-  border-radius: 50%;
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-.dot:hover {
-  background-color: #000;
-  transform: scale(1.5);
-}
-
-.dot::before {
-  content: attr(data-tooltip);
-  position: absolute;
-  top: 200%;
-  left: -200%;
-  background-color: #000;
-  color: #fff;
-  font-size: 0.5em;
-  padding: 0.3em 0.6em;
-  border-radius: 5px;
-  opacity: 0;
-  white-space: nowrap;
-  pointer-events: none;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.dot:hover::before {
-  opacity: 1;
-  transform: translate(-50%, -200%);
+.navigation {
+  flex: 1;
 }
 
 .no-link {
