@@ -4,6 +4,16 @@ import { ref, onMounted, onUnmounted } from 'vue';
 const currentSection = ref('');
 const isShrunk = ref(false);
 
+const nav = [
+  { id: 'home', text: 'Homepage', action: () => scrollToTop() },
+  { id: 'about', text: 'About me' },
+  { id: 'projects', text: 'My projects' },
+  { id: 'contact', text: 'Contact' },
+];
+
+let observer: IntersectionObserver;
+
+
 const updateCurrentSection = (entries: IntersectionObserverEntry[]) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -23,7 +33,9 @@ const scrollTo = (id: string) => {
   }
 };
 
-let observer: IntersectionObserver;
+const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+};
 
 onMounted(() => {
   const sections = document.querySelectorAll('section');
@@ -42,7 +54,6 @@ onUnmounted(() => {
 });
 </script>
 
-
 <template>
   <header :class="{ shrink: isShrunk }">
     <div class="logo">
@@ -55,17 +66,29 @@ onUnmounted(() => {
 
     <nav class="navigation">
       <ul>
-        <li><a href="#home" @click.prevent="scrollTo('home')" class="link" :class="{ current: currentSection === 'home' }">Homepage</a></li>
-        <li><a href="#about" @click.prevent="scrollTo('about')" class="link" :class="{ current: currentSection === 'about' }">About me</a></li>
-        <li><a href="#projects" @click.prevent="scrollTo('projects')" class="link" :class="{ current: currentSection === 'projects' }">My projects</a></li>
+        <li v-for="item in nav" :key="item.id">
+          <a
+            :href="'#' + item.id"
+            @click.prevent="item.action ? item.action() : scrollTo(item.id)"
+            class="link"
+            :class="{ current: currentSection === item.id }"
+          >
+            {{ item.text }}
+          </a>
+        </li>
       </ul>
     </nav>
 
     <div class="section-dots">
-      <a href="#home" class="dot" @click.prevent="scrollTo('home')" :class="{ currentDot: currentSection === 'home' }"></a>
-      <a href="#about" class="dot" @click.prevent="scrollTo('about')" :class="{ currentDot: currentSection === 'about' }"></a>
-      <a href="#projects" class="dot" @click.prevent="scrollTo('projects')" :class="{ currentDot: currentSection === 'projects' }"></a>
-      <a href="#contact" class="dot" @click.prevent="scrollTo('contact')" :class="{ currentDot: currentSection === 'contact' }"></a>
+      <a
+        v-for="item in nav"
+        :key="item.id"
+        :href="'#' + item.id"
+        class="dot"
+        @click.prevent="item.action ? item.action() : scrollTo(item.id)"
+        :class="{ currentDot: currentSection === item.id }"
+        :data-tooltip="item.text"
+      ></a>
     </div>
   </header>
 </template>
@@ -123,7 +146,7 @@ header.shrink .logo h1 {
   text-decoration: none;
   color: #000;
   position: relative;
-  transition: all .2s ease-in-out;
+  transition: color .2s ease-in-out;
 }
 
 .link::after {
@@ -161,7 +184,6 @@ header.shrink .logo h1 {
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 .dot {
@@ -170,15 +192,34 @@ header.shrink .logo h1 {
   margin: 0.5em 0;
   background-color: #c3c3c3;
   border-radius: 50%;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+  position: relative;
 }
 
 .dot:hover {
   background-color: #000;
+  transform: scale(1.5);
 }
 
-.currentDot {
-  background-color: cornflowerblue;
+.dot::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: 200%;
+  left: -200%;
+  background-color: #000;
+  color: #fff;
+  font-size: 0.5em;
+  padding: 0.3em 0.6em;
+  border-radius: 5px;
+  opacity: 0;
+  white-space: nowrap;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.dot:hover::before {
+  opacity: 1;
+  transform: translate(-50%, -200%);
 }
 
 .no-link {
