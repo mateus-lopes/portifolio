@@ -53,7 +53,7 @@ document.getElementById('dayBtn').addEventListener('click', () => {
 
 //   lucas
 const active = document.getElementById('active')
-const coulds = document.getElementsByClassName('coulds')
+const clouds = document.getElementsByClassName('clouds')
 
 async function fetchWeatherApi(lat, long, location) {
   let weatherApiKey = 'KuIW9skcDHPpQ7nv'
