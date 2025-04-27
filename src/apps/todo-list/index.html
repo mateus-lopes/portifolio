@@ -1,35 +1,28 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <title>Lista de Tarefas | Mini Portifólio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../../assets/css/globals.css">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="../../assets/css/globals.css" />
+    <link rel="stylesheet" href="./style.css" />
     <script src="../../../utils.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <header class="header-app">
-        <img
-            src="../../assets/imagens/icons/Settings.png"
-            alt="icone de configuração"
-        />
+      <img src="../../assets/images/icons/Settings.png" alt="icone de configuração" />
     </header>
     <section class="container">
-        <a class="return" href="../../../index.html#todo">
-            Mini Portifolio /
-        </a>
-        <h2 class="title-app">
-            Lista de Tarefas
-        </h2>
+      <a class="return" href="../../../index.html#todo"> Mini Portifolio / </a>
+      <h2 class="title-app">Lista de Tarefas</h2>
 
-        <input type="text" id="task-input" placeholder="Add task" />
-        <button onclick="addTask()" class="btn-primary">Add Task</button>
-        <ul id="todo-list">
-            <li id="no-tasks" style="display: block">Você ainda não cadastrou nenhuma tarefa :(</li>
-        </ul>
+      <input type="text" id="task-input" placeholder="Add task" />
+      <button onclick="addTask()" class="btn-primary">Add Task</button>
+      <ul id="todo-list">
+        <li id="no-tasks" style="display: block">Você ainda não cadastrou nenhuma tarefa :(</li>
+      </ul>
     </section>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
