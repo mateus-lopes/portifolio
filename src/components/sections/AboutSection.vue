@@ -2,11 +2,12 @@
 
 <template>
   <section class="about" id="about">
-    <h2>
-      {{ $t('about') }}
-    </h2>
+    
     <div class="about-content">
       <div>
+        <h2>
+      {{ $t('about') }}
+    </h2>
         <p>
           {{ $t('aboutMe1') }}
         </p>
@@ -43,7 +44,9 @@
 }
 
 .img-about {
-  height: 350px;
+  height: 400px;
+  border: 1px solid #0000004a;
+  padding: 1em;
 }
 
 .about-content {
