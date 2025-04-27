@@ -112,7 +112,7 @@
 }
 
 .t2 {
-  width: 40px;
+  width: 60px;
   height: 80px;
   position: absolute;
   display: flex;
