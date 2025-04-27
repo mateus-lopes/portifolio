@@ -16,16 +16,13 @@
     <div class="social-medias">
       <ul>
         <li>
-          <a href="#"><img class="icon" src="../../assets/images/icons/Group 2.png" alt="" /></a>
+          <a target="_blank" href="mailto:mateusalbano22@gmail.com?subject=Assunto%20do%20Email&body=Mensagem%20aqui%20no%20corpo%20do%20email"><img class="icon" src="../../assets/images/icons/GMAIL.png" alt="" /></a>
         </li>
         <li>
-          <a href="#"><img class="icon" src="../../assets/images/icons/GMAIL.png" alt="" /></a>
+          <a target="_blank" href="https://www.linkedin.com/in/mateus-lopes-albano-b35922237/"><img class="icon" src="../../assets/images/icons/Group 4.png" alt="" /></a>
         </li>
         <li>
-          <a href="#"><img class="icon" src="../../assets/images/icons/Group 4.png" alt="" /></a>
-        </li>
-        <li>
-          <a href="#"><img class="icon" src="../../assets/images/icons/GITHUB.png" alt="" /></a>
+          <a target="_blank" href="https://github.com/mateus-lopes?tab=overview&from=2024-12-01&to=2024-12-31"><img class="icon" src="../../assets/images/icons/GITHUB.png" alt="" /></a>
         </li>
       </ul>
     </div>
