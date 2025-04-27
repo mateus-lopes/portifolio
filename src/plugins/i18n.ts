@@ -16,10 +16,13 @@ const messages = {
     highlight2a: "that became",
     highlight2b: "small",
     highlight2c: "projects",
+    projectsDescription: "Here are some of my projects that I have developed during my studies.",
+    comminSoon: "Coming Soon",
     contact1: "Do you want to start a project?",
     contact2: "Let's Talk...",
     contact3: "Get in touch",
     footer1: "Developed by",
+    backTop: "Back to Top",
 },
   pt: {
     home: "Início",
@@ -35,10 +38,13 @@ const messages = {
     highlight2a: "e",
     highlight2b: "pequenos",
     highlight2c: "projetos",
+    projectsDescription: "Aqui estão alguns dos projetos que desenvolvi durante meus estudos.",
+    comminSoon: "Em Breve",
     contact1: "Quer iniciar um projeto?",
     contact2: "Vamos conversar...",
     contact3: "Entre em contato",
     footer1: "Desenvolvido por",
+    backTop: "Voltar ao Topo",
   },
 };
 

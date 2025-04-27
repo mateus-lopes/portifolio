@@ -3,9 +3,16 @@
 <template>
   <section class="apps" id="projects">
     <div class="apps-content">
-      <h2>My projects</h2>
-      <p>Here are some of my projects that I have developed during my studies.</p>
-      <div class="projects">
+      <h2>
+        {{ $t('projects') }}
+      </h2>
+      <p>
+        {{ $t('projectsDescription') }}
+      </p>
+      <span class="comming-soon">
+        {{ $t('comminSoon') }}
+      </span>
+      <!-- <div class="projects">
         <div class="project">
           <img src="../assets/images/Group 1.png" alt="" />
           <h3>Project 1</h3>
@@ -21,7 +28,7 @@
           <h3>Project 3</h3>
           <p>Project description goes here.</p>
         </div>
-      </div>
+      </div> -->
     </div>
   </section>
 </template>
@@ -65,5 +72,13 @@
 .project h3 {
   font-size: 1.5em;
   margin: 0.5em 0;
+}
+
+.comming-soon {
+  font-size: 2em;
+  color: #000;
+  font-weight: 700;
+  margin-top: 2em;
+  animation: text-shadow-swap 5s infinite ease-in-out;
 }
 </style>

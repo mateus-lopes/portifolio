@@ -5,18 +5,28 @@ const store = useLayoutStore()
 </script>
 
 <template>
-  <a
-    v-for="item in store.nav"
-    :key="item.id"
-    :href="'#' + item.id"
-    class="dot"
-    @click.prevent="item.btnAction ? item.btnAction() : store.scrollTo(item.id)"
-    :class="{ currentDot: store.currentSection === item.id }"
-    :data-tooltip="$t(item.id)"
-  ></a>
+  <div class="section-dots">
+    <a
+      v-for="item in store.nav"
+      :key="item.id"
+      :href="'#' + item.id"
+      class="dot"
+      @click.prevent="item.btnAction ? item.btnAction() : store.scrollTo(item.id)"
+      :class="{ currentDot: store.currentSection === item.id }"
+      :data-tooltip="$t(item.id)"
+    ></a>
+  </div>
 </template>
 
 <style scoped>
+.section-dots {
+  position: fixed;
+  top: 50%;
+  right: 2em;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+}
 .dot {
   width: 15px;
   height: 15px;

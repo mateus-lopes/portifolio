@@ -22,7 +22,9 @@ const scrollToTop = () => {
         <circle cx="12" cy="12" r="10"></circle>
         <polyline points="16 12 12 8 8 12"></polyline>
       </svg>
-      <p>Back to top</p>
+      <p>
+        {{ $t('backTop') }}
+      </p>
     </a>
   </div>
 </template>

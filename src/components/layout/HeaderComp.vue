@@ -3,10 +3,9 @@ import { onMounted, onUnmounted } from 'vue'
 import { useLayoutStore } from '../../stores/layout'
 import LinkNav from './header/LinksNav.vue'
 import SectionDot from './header/SectionDots.vue'
-import { useLanguageStore } from '@/stores/language';
+import SelectLanguage from './header/SelectLanguage.vue'
 
 const storeLayout = useLayoutStore()
-const storeLanguage = useLanguageStore();
 
 let observer: IntersectionObserver
 
@@ -24,11 +23,9 @@ const handleScroll = () => {
 
 onMounted(() => {
   const sections = document.querySelectorAll('section')
-
   observer = new IntersectionObserver(updateCurrentSection, {
     threshold: 0.6,
   })
-
   sections.forEach((section) => observer.observe(section))
   window.addEventListener('scroll', handleScroll)
 })
@@ -46,22 +43,9 @@ onUnmounted(() => {
         <a href="https://github.com/mateus-lopes" target="_blank" class="no-link"> mateus-lopes </a>
       </h1>
     </div>
-
-    <nav class="navigation">
-      <LinkNav />
-    </nav>
-    <div class="div-language">
-      <button class="language-icon" @click="storeLanguage.setLanguage('pt')">
-        <img src="../../assets/images/countries/brazil.png" alt="Portuguese" />
-      </button>
-      <button class="language-icon" @click="storeLanguage.setLanguage('en')">
-        <img src="../../assets/images/countries/eua.png" alt="English" />
-      </button>
-    </div>
-
-    <div class="section-dots">
-      <SectionDot />
-    </div>
+    <LinkNav />
+    <SelectLanguage />
+    <SectionDot />
   </header>
 </template>
 
@@ -98,40 +82,8 @@ header.shrink .logo h1 {
   font-size: 1.3em;
 }
 
-.section-dots {
-  position: fixed;
-  top: 50%;
-  right: 2em;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-}
-
-.navigation {
-  flex: 1;
-}
-
 .no-link {
   text-decoration: none;
   color: #000;
-}
-
-.div-language {
-  display: flex;
-  gap: 5px;
-  margin-left: 1em;
-}
-
-.language-icon {
-  width: 30px;
-  height: 30px;
-  border: none;
-  outline: none;
-  background: transparent;
-}
-
-.language-icon img {
-  width: 100%;
-  border-radius: 100%;
 }
 </style>
