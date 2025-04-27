@@ -3,28 +3,39 @@
 
 <template>
   <section class="about" id="about">
+    <h2>
+      {{ $t('about') }}
+    </h2>
     <div class="about-content">
-      <p>
-        {{ $t('aboutMe1') }}
-      </p>
-      <p>
-        {{ $t('aboutMe2') }}
-      </p>
+      <div>
+        <p>
+          {{ $t('aboutMe1') }}
+        </p>
+        <p>
+          {{ $t('aboutMe2') }}
+        </p>
+      </div>
+      <img src="../../assets/images/teste.jpeg" class="img-about" />
     </div>
-    <img src="../../assets/images/teste.jpeg" class="img-about" />
   </section>
 </template>
 
 <style scoped>
 .about {
   width: 75%;
-  padding: 6em 0;
+  height: 100vh;
   margin: 10em auto 0;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .about h2 {
-  font-size: 2em;
+  width: 100%;
+  font-size: 1.3m;
+  font-weight: 300;
+  color: #0000004a;
 }
 
 .about p {
@@ -34,5 +45,11 @@
 
 .img-about {
   height: 350px;
+}
+
+.about-content {
+  display: flex;
+  justify-content: center;
+  align-items: start;
 }
 </style>

@@ -34,7 +34,7 @@ h1 {
   border: 2px solid #000;
   border-radius: 5px;
   background: yellowgreen;
-  cursor: pointer;
+  ;
   transition: all 0.3s ease-in-out;
 }
 
@@ -44,7 +44,7 @@ h1 {
 }
 
 .btn-stroke {
-  cursor: pointer;
+  ;
   position: relative;
   display: inline-block;
   padding: 10px 20px;
@@ -63,7 +63,7 @@ h1 {
 }
 
 .btn-stroke2 {
-  cursor: pointer;
+  ;
   position: relative;
   display: inline-block;
   padding: 10px 20px;
@@ -94,7 +94,7 @@ h1 {
 .header-app img {
   width: 24px;
   height: 24px;
-  cursor: pointer;
+  ;
 }
 
 .header-app img:hover {
@@ -127,7 +127,6 @@ h1 {
 }
 
 input {
-  cursor: pointer;
   position: relative;
   display: inline-block;
   padding: 10px 20px;

@@ -132,7 +132,7 @@ body {
   height: 50px;
   text-align: center;
   width: 250px;
-  cursor: pointer;
+  ;
   z-index: 2000;
 }
 
@@ -278,7 +278,7 @@ input {
   font-size: 16px;
   font-family: 'Poppins', sans-serif;
   letter-spacing: 2px;
-  cursor: pointer;
+  ;
 }
 
 .location-content {

@@ -85,7 +85,7 @@ header {
 
 header.shrink {
   height: 70px;
-  box-shadow: 0 3px 10px rgba(59, 59, 59, 0.1);
+  border-bottom: 1px solid #0000005a;
 }
 
 .logo h1 {
@@ -133,6 +133,5 @@ header.shrink .logo h1 {
 .language-icon img {
   width: 100%;
   border-radius: 100%;
-  cursor: pointer;
 }
 </style>

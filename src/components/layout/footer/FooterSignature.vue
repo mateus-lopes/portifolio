@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <p>
-      Developed by
+      {{ $t('footer1') }}
       <a href="https://github.com/mateus-lopes" target="_blank" class="link">Mateus Lopes</a>
     </p>
   </div>

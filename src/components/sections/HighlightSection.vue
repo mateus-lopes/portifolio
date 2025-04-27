@@ -191,4 +191,13 @@
   height: 24px;
   width: 24px;
 }
+
+@media screen and (min-width: 1440px) {
+  .highlight {
+    font-size: 1.2em;
+  }
+  .social-medias {
+    margin-top: 2em;
+  }
+}
 </style>

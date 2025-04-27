@@ -1,8 +1,8 @@
 <template>
   <section class="contact-content">
-    <h3>Can you start a project?</h3>
-    <h2>Let's Talk...</h2>
-    <a href="#" class="btn-stroke2 mt-2">Get in touch</a>
+    <h3>{{ $t('contact1') }}</h3>
+    <h2>{{ $t('contact2') }}</h2>
+    <a href="#" class="btn-stroke2 mt-2">{{ $t('contact3') }}</a>
   </section>
 </template>
 
@@ -51,6 +51,17 @@
   100% {
     transform: translateX(-25px);
     text-shadow: 80px 50px 0 #0000005a;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .contact-content h2 {
+    font-size: 5em;
+  }
+
+  .contact-content {
+    margin: 0 auto 0;
+    padding: 0;
   }
 }
 </style>

@@ -16,6 +16,10 @@ const messages = {
     highlight2a: "that became",
     highlight2b: "small",
     highlight2c: "projects",
+    contact1: "Do you want to start a project?",
+    contact2: "Let's Talk...",
+    contact3: "Get in touch",
+    footer1: "Developed by",
 },
   pt: {
     home: "Início",
@@ -31,6 +35,10 @@ const messages = {
     highlight2a: "e",
     highlight2b: "pequenos",
     highlight2c: "projetos",
+    contact1: "Quer iniciar um projeto?",
+    contact2: "Vamos conversar...",
+    contact3: "Entre em contato",
+    footer1: "Desenvolvido por",
   },
 };
 

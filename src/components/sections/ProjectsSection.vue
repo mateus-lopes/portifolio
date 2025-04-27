@@ -29,10 +29,13 @@
 <style scoped>
 .apps {
   width: 75%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   margin: 0 auto;
 }
 .apps-content {
-  padding-top: 7em;
   display: flex;
   flex-direction: column;
   align-items: center;
