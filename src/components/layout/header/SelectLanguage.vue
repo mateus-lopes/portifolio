@@ -1,35 +1,37 @@
 <script lang="ts" setup>
-import { onMounted, ref } from 'vue'
-import { useLanguageStore } from '../../../stores/language';
-import LoaderComp from '../../misc/LoaderComp.vue';
+import { onMounted } from 'vue'
+import { useLanguageStore } from '../../../stores/language'
+import LoaderComp from '../../misc/LoaderComp.vue'
 
-const storeLanguage = useLanguageStore();
+const storeLanguage = useLanguageStore()
 
 onMounted(() => {
-  storeLanguage.setLanguage(storeLanguage.getLanguage());
+  storeLanguage.setLanguage(storeLanguage.getLanguage())
 })
 </script>
 
 <template>
-    <LoaderComp :loader="storeLanguage.loading" />
-    <div class="div-language">
-      <button 
-      class="language-icon"
-      @click="storeLanguage.setLanguage('pt')"
-      >
-      <img src="../../../assets/images/countries/brazil.png" alt="Portuguese" :class="{
-        'active': storeLanguage.getLanguage() === 'pt'
-      }" />
-      </button>
-      <button 
-      class="language-icon" 
-      @click="storeLanguage.setLanguage('en')"
-      >
-      <img src="../../../assets/images/countries/eua.png" alt="English" :class="{
-        'active': storeLanguage.getLanguage() === 'en'
-      }" />
-      </button>
-    </div>
+  <LoaderComp :loader="storeLanguage.loading" />
+  <div class="div-language">
+    <button class="language-icon" @click="storeLanguage.setLanguage('pt')">
+      <img
+        src="../../../assets/images/countries/brazil.png"
+        alt="Portuguese"
+        :class="{
+          active: storeLanguage.getLanguage() === 'pt',
+        }"
+      />
+    </button>
+    <button class="language-icon" @click="storeLanguage.setLanguage('en')">
+      <img
+        src="../../../assets/images/countries/eua.png"
+        alt="English"
+        :class="{
+          active: storeLanguage.getLanguage() === 'en',
+        }"
+      />
+    </button>
+  </div>
 </template>
 
 <style scoped>

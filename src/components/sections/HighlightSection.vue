@@ -3,26 +3,38 @@
 <template>
   <section class="highlight" id="home">
     <div class="highlight-content">
-      <p> {{ $t('highlightSPAN') }} </p>
+      <p>{{ $t('highlightSPAN') }}</p>
       <h1>
-        {{ $t('highlight1a') }} <span class="underline">{{ $t('highlight1b') }}</span> {{ $t('highlight1c') }}
+        {{ $t('highlight1a') }} <span class="underline">{{ $t('highlight1b') }}</span>
+        {{ $t('highlight1c') }}
         <div class="decoration t1"><p>8</p></div>
       </h1>
       <h1>
-        {{ $t('highlight2a') }} <span class="text-primary">{{ $t('highlight2b') }}</span> {{ $t('highlight2c') }} 
+        {{ $t('highlight2a') }} <span class="text-primary">{{ $t('highlight2b') }}</span>
+        {{ $t('highlight2c') }}
         <div class="decoration t2"><p>🃏</p></div>
       </h1>
     </div>
     <div class="social-medias">
       <ul>
         <li>
-          <a target="_blank" href="mailto:mateusalbano22@gmail.com?subject=Assunto%20do%20Email&body=Mensagem%20aqui%20no%20corpo%20do%20email"><img class="icon" src="../../assets/images/icons/GMAIL.png" alt="" /></a>
+          <a
+            target="_blank"
+            href="mailto:mateusalbano22@gmail.com?subject=Assunto%20do%20Email&body=Mensagem%20aqui%20no%20corpo%20do%20email"
+            ><img class="icon" src="../../assets/images/icons/GMAIL.png" alt=""
+          /></a>
         </li>
         <li>
-          <a target="_blank" href="https://www.linkedin.com/in/mateus-lopes-albano-b35922237/"><img class="icon" src="../../assets/images/icons/Group 4.png" alt="" /></a>
+          <a target="_blank" href="https://www.linkedin.com/in/mateus-lopes-albano-b35922237/"
+            ><img class="icon" src="../../assets/images/icons/Group 4.png" alt=""
+          /></a>
         </li>
         <li>
-          <a target="_blank" href="https://github.com/mateus-lopes?tab=overview&from=2024-12-01&to=2024-12-31"><img class="icon" src="../../assets/images/icons/GITHUB.png" alt="" /></a>
+          <a
+            target="_blank"
+            href="https://github.com/mateus-lopes?tab=overview&from=2024-12-01&to=2024-12-31"
+            ><img class="icon" src="../../assets/images/icons/GITHUB.png" alt=""
+          /></a>
         </li>
       </ul>
     </div>

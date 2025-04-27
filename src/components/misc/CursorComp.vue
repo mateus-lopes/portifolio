@@ -1,20 +1,20 @@
 <script setup lang="ts">
-import { onMounted } from 'vue';
+import { onMounted } from 'vue'
 
 onMounted(() => {
-  const cursor = document.getElementById('custom-cursor');
-  
+  const cursor = document.getElementById('custom-cursor')
+
   if (cursor) {
     document.addEventListener('mousemove', (e) => {
-      cursor.style.left = e.clientX + 'px';
-      cursor.style.top = e.clientY + 'px';
-    });
+      cursor.style.left = e.clientX + 'px'
+      cursor.style.top = e.clientY + 'px'
+    })
   }
-});
+})
 </script>
 
 <template>
-    <div id="custom-cursor"></div>
+  <div id="custom-cursor"></div>
 </template>
 
 <style>
@@ -30,8 +30,10 @@ onMounted(() => {
   z-index: 10000;
 }
 
-body, a, button, [data-cursor-pointer] {
+body,
+a,
+button,
+[data-cursor-pointer] {
   cursor: none !important;
 }
 </style>
-  

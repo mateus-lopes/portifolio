@@ -4,7 +4,7 @@ import { ref } from 'vue'
 export const useLayoutStore = defineStore('layout', () => {
   const currentSection = ref('')
   const isShrunk = ref(false)
-  
+
   const nav = [
     { id: 'home', text: 'Homepage', btnAction: () => scrollToTop() },
     { id: 'about', text: 'About me' },

@@ -5,21 +5,21 @@ const store = useLayoutStore()
 </script>
 
 <template>
-    <nav class="navigation">
-      <ul>
-        <li v-for="item in store.nav" :key="item.id">
-          <a
-            :href="'#' + item.id"
-            class="link"
-            @click.prevent="item.btnAction ? item.btnAction() : store.scrollTo(item.id)"
-            :class="{ current: store.currentSection === item.id }"
-            :data-tooltip="$t(item.id)"
-          >
-            {{ $t(item.id) }}
-          </a>
-        </li>
-      </ul>
-    </nav>
+  <nav class="navigation">
+    <ul>
+      <li v-for="item in store.nav" :key="item.id">
+        <a
+          :href="'#' + item.id"
+          class="link"
+          @click.prevent="item.btnAction ? item.btnAction() : store.scrollTo(item.id)"
+          :class="{ current: store.currentSection === item.id }"
+          :data-tooltip="$t(item.id)"
+        >
+          {{ $t(item.id) }}
+        </a>
+      </li>
+    </ul>
+  </nav>
 </template>
 
 <style scoped>
