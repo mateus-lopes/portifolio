@@ -53,7 +53,7 @@ const store = useLayoutStore()
   padding: 0.3em 0.6em;
   border-radius: 5px;
   opacity: 0;
-  #fafafa-space: nowrap;
+  white-space: nowrap;
   pointer-events: none;
   transition:
     opacity 0.3s ease,
