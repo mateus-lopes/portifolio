@@ -50,8 +50,14 @@
 }
 
 .about-content {
-  display: flex;
+  display: block;
   justify-content: center;
   align-items: start;
+}
+
+@media (min-width: 1000px) {
+  .about-content {
+    display: flex;
+  }
 }
 </style>

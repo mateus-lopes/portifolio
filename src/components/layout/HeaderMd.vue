@@ -4,6 +4,7 @@ import { useLayoutStore } from '../../stores/layout'
 import LinkNav from './header/LinksNav.vue'
 import SectionDot from './header/SectionDots.vue'
 import SelectLanguage from './header/SelectLanguage.vue'
+import CursorComp from '../misc/CursorComp.vue'
 
 const storeLayout = useLayoutStore()
 
@@ -37,6 +38,7 @@ onUnmounted(() => {
 </script>
 
 <template>
+  <CursorComp />
   <header :class="{ shrink: storeLayout.isShrunk }">
     <div class="logo">
       <h1>

@@ -6,10 +6,27 @@ export const useLayoutStore = defineStore('layout', () => {
   const isShrunk = ref(false)
 
   const nav = [
-    { id: 'home', text: 'Homepage', btnAction: () => scrollToTop() },
-    { id: 'about', text: 'About me' },
-    { id: 'projects', text: 'My projects' },
-    { id: 'contact', text: 'Contact' },
+    { 
+      id: 'home', 
+      text: 'Homepage', 
+      icon: 'fa-solid fa-house',
+      btnAction: () => scrollToTop()
+    },
+    { 
+      id: 'about', 
+      text: 'About me',
+      icon: 'fas fa-user',
+    },
+    { 
+      id: 'projects', 
+      text: 'My projects',
+      icon: 'fa-solid fa-code',
+    },
+    { 
+      id: 'contact', 
+      text: 'Contact',
+      icon: 'fa-solid fa-envelope',
+     },
   ]
 
   const setCurrentSection = (section: string) => {

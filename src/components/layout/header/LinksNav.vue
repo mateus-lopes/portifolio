@@ -2,10 +2,17 @@
 import { useLayoutStore } from '../../../stores/layout'
 
 const store = useLayoutStore()
+
+defineProps({
+  icons: {
+    type: Boolean,
+    default: false,
+  },
+})
 </script>
 
 <template>
-  <nav class="navigation">
+  <nav :class="{'navigation': !icons}">
     <ul>
       <li v-for="item in store.nav" :key="item.id">
         <a
@@ -15,7 +22,8 @@ const store = useLayoutStore()
           :class="{ current: store.currentSection === item.id }"
           :data-tooltip="$t(item.id)"
         >
-          {{ $t(item.id) }}
+          <i v-if="icons" class="icon" :class="item.icon"></i>
+          {{ icons ? '' : $t(item.id) }}
         </a>
       </li>
     </ul>

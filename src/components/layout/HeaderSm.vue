@@ -1,82 +1,57 @@
-<script setup>
-  import { ref } from 'vue';
-  const menuAberto = ref(false);
+<script lang="ts" setup>
+import { onMounted, onUnmounted } from 'vue'
+import { useLayoutStore } from '../../stores/layout'
+import LinkNav from './header/LinksNav.vue'
+
+const storeLayout = useLayoutStore()
+
+let observer: IntersectionObserver
+
+const updateCurrentSection = (entries: IntersectionObserverEntry[]) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      storeLayout.setCurrentSection(entry.target.id)
+    }
+  })
+}
+const handleScroll = () => {
+  storeLayout.setIsShrunk(window.scrollY > 50)
+}
+
+onMounted(() => {
+  const sections = document.querySelectorAll('section')
+  observer = new IntersectionObserver(updateCurrentSection, {
+    threshold: 0.6,
+  })
+  sections.forEach((section) => observer.observe(section))
+  window.addEventListener('scroll', handleScroll)
+})
+
+onUnmounted(() => {
+  observer?.disconnect()
+  window.removeEventListener('scroll', handleScroll)
+})
 </script>
 
 <template>
   <header>
-    <div class="header--logo">
-      <h1>header- SM</h1>
-    </div>
-    <nav>
-      <ul :class="menuAberto ? 'menu' : ''">
-        <li>Home</li>
-        <li>Eletrônicos</li>
-        <li>Jóias</li>
-        <li>Masculino</li>
-        <li>Feminino</li>
-      </ul>
-    </nav>
+    <LinkNav icons />
   </header>
 </template>
 
 <style scoped>
-  header {
-    background: #fff;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-    padding: 0.2rem 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .header--logo {
-    display: flex;
-    align-items: center;
-  }
-  .header--logo img {
-    width: 3rem;
-    height: 3rem;
-    margin-right: 0.5rem;
-  }
-  nav ul {
-    display: flex;
-    gap: 1rem;
-  }
-  nav li {
-    list-style: none;
-  }
-
-  .header--icons {
-    display: flex;
-    gap: 1rem;
-  }
-  .menu-hamburger {
-    display: none;
-  }
-
-  @media (max-width: 768px) {
-    nav ul {
-      display: none;
-    }
-    .menu-hamburger {
-      display: block;
-    }
-
-    nav .menu {
-      display: flex;
-      flex-direction: column;
-      position: absolute;
-      background-color: rgba(255, 255, 255, 0.9);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-      border-radius: 10px;
-      right: 0;
-      text-align: right;
-      padding: 10px 16px;
-    }
-    nav .menu li {
-      display: block;
-      margin-top: 12px;
-    }
-  }
+header {
+  background-color: #fff;
+  padding: 1rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 </style>
+
+
