@@ -2,20 +2,30 @@
 import { useLayoutStore } from '../../../stores/layout'
 
 const store = useLayoutStore()
+
+defineProps({
+  icons: {
+    type: Boolean,
+    default: false,
+  },
+})
 </script>
 
 <template>
-  <nav class="navigation">
+  <nav :class="{'navigation': !icons}">
     <ul>
       <li v-for="item in store.nav" :key="item.id">
         <a
           :href="'#' + item.id"
-          class="link"
+          class=""
           @click.prevent="item.btnAction ? item.btnAction() : store.scrollTo(item.id)"
-          :class="{ current: store.currentSection === item.id }"
+          :class="[{ current: store.currentSection === item.id, 'link': !icons }]"
           :data-tooltip="$t(item.id)"
         >
-          {{ $t(item.id) }}
+          <i v-if="icons" class="icon" :class="[item.icon, {
+            currentIcon: store.currentSection === item.id,
+          }]"></i>
+          {{ icons ? '' : $t(item.id) }}
         </a>
       </li>
     </ul>
@@ -23,6 +33,10 @@ const store = useLayoutStore()
 </template>
 
 <style scoped>
+a {
+  text-decoration: none;
+}
+
 .navigation {
   flex: 1;
 }
@@ -69,5 +83,17 @@ ul {
   display: flex;
   justify-content: flex-end;
   gap: 1.2em;
+}
+
+.icon {
+  font-size: 1.2em;
+  margin: 0 1em;
+  display: block;
+  color: #333;
+  text-decoration: none;
+}
+
+.currentIcon {
+  color: cornflowerblue !important;
 }
 </style>

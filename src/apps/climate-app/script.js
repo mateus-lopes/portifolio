@@ -16,7 +16,7 @@ function toggleDay(option) {
     for (let i; i < coulds.length; i++) {
       coulds[i].style.backgroundColor = '#777'
     }
-    weather.style.color = '#fff'
+    weather.style.color = '#fafafa'
     button.style.backgroundColor = '#333'
   } else {
     // Nighttime

@@ -1,18 +1,19 @@
 <script setup lang="ts">
-import HeaderComp from '../components/layout/HeaderComp.vue'
-import FooterComp from '../components/layout/FooterComp.vue'
+import { useScreen } from '../composables/useScreen'
 import HighlightSection from '../components/sections/HighlightSection.vue'
 import AboutSection from '../components/sections/AboutSection.vue'
 import ProjectsSection from '../components/sections/ProjectsSection.vue'
+
+const { nav, footer } = useScreen()
 </script>
 
 <template>
   <main>
-    <HeaderComp />
+    <component :is="nav" />
     <HighlightSection />
     <AboutSection />
     <ProjectsSection />
-    <FooterComp />
+    <component :is="footer" />
   </main>
 </template>
 

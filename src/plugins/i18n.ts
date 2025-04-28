@@ -11,7 +11,7 @@ const messages = {
       'Since I was young, I have always been passionate about technology. I began my studies early, at the age of 15, by enrolling in a high school program integrated with a Technical Course in Informatics at the Federal Institute of Santa Catarina (Instituto Federal Catarinense - IFC).',
     aboutMe2:
       "After completing high school, I continued my academic journey by pursuing a Bachelor's degree in Information Systems, also at IFC. During college, I joined the Software Factory as a volunteer (and later became a scholarship holder), where I simulated a professional work environment under the supervision of professors and participated in research, teaching, and extension projects.",
-    highlightSPAN: 'Welcome! I am a beginner developer seeking experience',
+    highlightSPAN: 'Welcome! I am a web developer',
     highlight1a: 'My',
     highlight1b: 'biggest',
     highlight1c: 'challenges',
@@ -35,7 +35,7 @@ const messages = {
       'Desde jovem, sempre fui apaixonado por tecnologia e iniciei meus estudos bem cedo com 15 anos ao cursar  o ensino médio com Técnico em Informática integrado no Instituto Federal Catarinense.',
     aboutMe2:
       'Após a conclusão do Ensino Médio, dei continuidade à minha formação acadêmica no Bacharelado em Sistemas de Informação, também no IFC. Durante a faculdade, entrei para a Fábrica de Software como voluntário(futuramente me tornei bolsista), onde simulei um ambiente de trabalho sob supervisão de professores e participei de projetos de pesquisa, ensino e extensão.',
-    highlightSPAN: 'Bem-vindo! Sou um desenvolvedor buscando experiência',
+    highlightSPAN: 'Bem-vindo! Sou um desenvolvedor',
     highlight1a: 'Meus',
     highlight1b: 'grandes',
     highlight1c: 'desafios',
