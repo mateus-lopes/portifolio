@@ -116,7 +116,7 @@
   align-items: center;
   background-color: black;
   border-radius: 45px;
-  color: #fff;
+  color: #fafafa;
   overflow: hidden;
   top: 0em;
   right: -1em;
@@ -131,7 +131,7 @@
   justify-content: center;
   align-items: center;
   padding: 0 5px;
-  color: #fff;
+  color: #fafafa;
   overflow: hidden;
   top: 0em;
   left: -1em;
@@ -139,7 +139,7 @@
 
 .t1 p {
   font-size: small;
-  color: #fff;
+  color: #fafafa;
   animation: slide 4s infinite;
 }
 

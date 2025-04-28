@@ -48,12 +48,12 @@ const store = useLayoutStore()
   top: 200%;
   left: -200%;
   background-color: #000;
-  color: #fff;
+  color: #fafafa;
   font-size: 0.5em;
   padding: 0.3em 0.6em;
   border-radius: 5px;
   opacity: 0;
-  white-space: nowrap;
+  #fafafa-space: nowrap;
   pointer-events: none;
   transition:
     opacity 0.3s ease,

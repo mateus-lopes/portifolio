@@ -107,7 +107,7 @@ body {
   opacity: 0.7;
   height: 100px;
   z-index: 500;
-  background-color: #fff;
+  background-color: #fafafa;
   animation: moveCloud 100s linear infinite;
 }
 
@@ -141,7 +141,7 @@ body {
 ========================
 */
 .btn-one {
-  color: #fff;
+  color: #fafafa;
   transition: all 0.3s;
   position: absolute;
   top: 10%;
@@ -234,7 +234,7 @@ h2 {
 }
 
 h2 .response {
-  color: #fff;
+  color: #fafafa;
   -webkit-text-stroke: 1px #000;
   font-size: 4rem;
   font-weight: 600;
@@ -273,7 +273,7 @@ input {
   border: none;
   border-radius: 50px;
   background-color: #ffd700;
-  color: #fff;
+  color: #fafafa;
   font-size: 16px;
   font-family: 'Poppins', sans-serif;
   letter-spacing: 2px;
@@ -337,7 +337,7 @@ input {
   bottom: 0.2em;
   left: 2em;
   font-size: 1em;
-  color: #fff;
+  color: #fafafa;
   padding: 1em;
   z-index: 2000;
 }

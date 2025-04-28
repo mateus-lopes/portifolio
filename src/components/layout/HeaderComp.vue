@@ -59,7 +59,7 @@ header {
   top: 0;
   left: 0;
   z-index: 1000;
-  background-color: white;
+  background-color: #fafafa;
   display: flex;
   align-items: center;
   justify-content: space-between;
