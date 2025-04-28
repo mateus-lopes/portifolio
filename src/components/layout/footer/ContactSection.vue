@@ -9,7 +9,7 @@
 <style scoped>
 .contact-content {
   width: 75%;
-  margin: 8em auto 0;
+  margin: 0 auto 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -24,7 +24,7 @@
 }
 
 .contact-content h2 {
-  font-size: 4em;
+  font-size: 3em;
   color: #000;
   font-weight: 700;
   animation: text-shadow-swap 5s infinite ease-in-out;
@@ -52,6 +52,14 @@
     transform: translateX(-25px);
     text-shadow: 80px 50px 0 #0000005a;
   }
+}
+
+@media screen and (min-width: 700px) {
+
+  .contact-content h2 {
+    font-size: 4em;
+  }
+  
 }
 
 @media screen and (min-width: 1440px) {

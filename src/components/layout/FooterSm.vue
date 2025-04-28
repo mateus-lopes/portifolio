@@ -7,7 +7,7 @@ import FooterSignature from './footer/FooterSignature.vue'
 <template>
   <section id="contact">
     <footer>
-      <h1>Footer- SM</h1>
+      <ContactSection />
       <ScrollUp />
       <FooterSignature />
     </footer>

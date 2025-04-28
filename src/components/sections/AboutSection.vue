@@ -2,12 +2,11 @@
 
 <template>
   <section class="about" id="about">
-    
     <div class="about-content">
       <div>
         <h2>
-      {{ $t('about') }}
-    </h2>
+          {{ $t('about') }}
+        </h2>
         <p>
           {{ $t('aboutMe1') }}
         </p>
@@ -22,9 +21,10 @@
 
 <style scoped>
 .about {
-  width: 75%;
+  width: 100vw;
   height: 100vh;
-  margin: 10em auto 0;
+  margin: 15em 0 0;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -44,15 +44,24 @@
 }
 
 .img-about {
-  height: 400px;
+  height: 300px;
   border: 1px solid #0000004a;
   padding: 1em;
+  margin-top: 1.5em;
 }
 
 .about-content {
   display: block;
   justify-content: center;
   align-items: start;
+  width: 75%;
+}
+
+@media screen and (min-width: 700px) {
+  .about {
+    margin: 0 !important;
+  }
+  
 }
 
 @media (min-width: 1000px) {

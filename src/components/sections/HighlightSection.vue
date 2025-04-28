@@ -42,6 +42,12 @@
 </template>
 
 <style scoped>
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
 .highlight {
   position: relative;
   width: 75%;
@@ -58,7 +64,7 @@
 }
 
 .highlight-content h1 {
-  font-size: 4em;
+  font-size: 3em;
   color: #000;
   font-weight: 700;
   margin: 0;
@@ -119,7 +125,7 @@
   color: #fafafa;
   overflow: hidden;
   top: 0em;
-  right: -1em;
+  right: -.5em;
   animation: move 3s infinite;
 }
 
@@ -133,8 +139,8 @@
   padding: 0 5px;
   color: #fafafa;
   overflow: hidden;
-  top: 0em;
-  left: -1em;
+  top: 2.5em;
+  left: 5em;
 }
 
 .t1 p {
@@ -156,6 +162,7 @@
 }
 
 .t2 p {
+  font-size: 1.3em;
   animation: flipCard 5s infinite;
   transform-style: preserve-3d;
   color: #000;
@@ -164,8 +171,7 @@
 .social-medias {
   width: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: start;
 }
 
 .social-medias ul {
@@ -176,7 +182,7 @@
 }
 
 .social-medias ul li {
-  margin: 0 0.5em;
+  margin: 0 1em 0 0;
   border: 1px solid #0000002a;
   width: 50px;
   height: 50px;
@@ -201,12 +207,41 @@
   width: 24px;
 }
 
+@media screen and (min-width: 1000px) {
+  .highlight-content h1 {
+    font-size: 4em;
+  }
+
+  .t2 {
+    width: 60px;
+    height: 80px;
+    top: 0em;
+    left: -1.2em;
+  }
+
+  .t2 p {
+    font-size: 1em;
+  }
+
+  .social-medias ul li {
+    margin: 0 1em;
+  }
+
+  .t1 {
+    right: -1em;
+  }
+}
+
 @media screen and (min-width: 1440px) {
   .highlight {
     font-size: 1.2em;
   }
   .social-medias {
     margin-top: 2em;
+    justify-content: center;
+  }
+  .social-medias ul li {
+    margin: 0 .5em;
   }
 }
 </style>
