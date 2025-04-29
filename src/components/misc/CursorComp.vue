@@ -30,10 +30,10 @@ onMounted(() => {
   z-index: 10000;
 }
 
-body,
+/* body,
 a,
 button,
 [data-cursor-pointer] {
   cursor: none !important;
-}
+} */
 </style>

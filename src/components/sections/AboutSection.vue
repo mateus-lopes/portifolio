@@ -57,6 +57,12 @@
   width: 75%;
 }
 
+@media screen and (max-width: 380px) {
+  .img-about {
+    height: 250px;
+  }
+}
+
 @media screen and (min-width: 700px) {
   .about {
     margin: 0 !important;

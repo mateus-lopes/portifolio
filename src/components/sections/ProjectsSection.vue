@@ -81,4 +81,10 @@
   margin-top: 2em;
   animation: text-shadow-swap 5s infinite ease-in-out;
 }
+
+@media (max-height: 700px) {
+  .apps {
+    margin-top: 10em;
+  }
+}
 </style>
