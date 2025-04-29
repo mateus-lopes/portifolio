@@ -237,6 +237,10 @@ ul {
     margin-top: 10em;
     margin-bottom: 22em;
   }
+
+  .social-medias {
+    margin-top: 2em;
+  }
 }
 
 @media screen and (min-width: 1440px) {
