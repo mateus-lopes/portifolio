@@ -232,6 +232,13 @@ ul {
   }
 }
 
+@media (max-height: 700px) {
+  .highlight {
+    margin-top: 10em;
+    margin-bottom: 22em;
+  }
+}
+
 @media screen and (min-width: 1440px) {
   .highlight {
     font-size: 1.2em;
