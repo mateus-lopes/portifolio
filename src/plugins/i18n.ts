@@ -25,6 +25,8 @@ const messages = {
     contact3: 'Get in touch',
     footer1: 'Developed by',
     backTop: 'Back to Top',
+    project1: 'Markowitz Project (ifc)',
+    project1Description: "Web application for investment portfolio management. Based on the user's selected asset classes, it calculates the optimal portfolio allocation, aiming for the best balance between risk and return using Markowitz's Modern Portfolio Theory.",
   },
   pt: {
     home: 'Início',
@@ -49,6 +51,8 @@ const messages = {
     contact3: 'Entre em contato',
     footer1: 'Desenvolvido por',
     backTop: 'Voltar ao Topo',
+    project1: 'Projeto Markowitz (ifc)',
+    project1Description: "Aplicação web para gerenciamento de carteiras de investimentos. Com base nas classes de ativos informadas pelo usuário, calcula a composição ideal da carteira, buscando o melhor equilíbrio entre risco e retorno segundo a Teoria Moderna do Portfólio de Markowitz.",
   },
 }
 

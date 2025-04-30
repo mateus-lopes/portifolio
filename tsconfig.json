@@ -7,5 +7,12 @@
     {
       "path": "./tsconfig.app.json"
     }
-  ]
+  ],
+  "compilerOptions": {
+    "module": "esnext", // ou "es2020", "es2022"
+    "moduleResolution": "node",
+    "target": "esnext",
+    "esModuleInterop": true,
+    "types": ["vite/client"]
+  }
 }
