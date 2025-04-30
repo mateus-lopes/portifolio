@@ -1,1 +1,0 @@
-import{C as o,S as t,F as a}from"./FooterSignature-DxSoEsfH.js";import{d as c,c as r,o as n,a as s,h as e}from"./index-D1GLUrta.js";const _={id:"contact"},f=c({__name:"FooterSm",setup(i){return(m,p)=>(n(),r("section",_,[s("footer",null,[e(o),e(t),e(a)])]))}});export{f as default};
