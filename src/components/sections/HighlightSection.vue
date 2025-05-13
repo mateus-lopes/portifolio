@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <section class="highlight" id="home">
+  <section id="home" class="highlight">
     <div class="highlight-content">
       <p>{{ $t('highlightSPAN') }}</p>
       <h1>
@@ -42,7 +42,6 @@
 </template>
 
 <style scoped>
-
 ul {
   padding: 0;
   margin: 0;
@@ -81,6 +80,8 @@ ul {
 .underline {
   font-weight: 100;
   text-decoration: line-through;
+  text-decoration-color: #000;
+  text-decoration-thickness: 1px;
 }
 
 @keyframes slide {
@@ -125,7 +126,7 @@ ul {
   color: #fafafa;
   overflow: hidden;
   top: 0em;
-  right: -.5em;
+  right: -0.5em;
   animation: move 3s infinite;
 }
 
@@ -209,7 +210,7 @@ ul {
 
 @media screen and (min-width: 1000px) {
   .highlight-content h1 {
-    font-size: 4em;
+    font-size: 3.8em;
   }
 
   .t2 {
@@ -252,7 +253,7 @@ ul {
     justify-content: center;
   }
   .social-medias ul li {
-    margin: 0 .5em;
+    margin: 0 0.5em;
   }
 }
 </style>
