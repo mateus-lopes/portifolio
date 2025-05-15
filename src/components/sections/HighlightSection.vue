@@ -256,6 +256,12 @@ ul {
   }
 }
 
+@media screen and (max-width: 400px) {
+  .social-medias {
+    margin-top: 3em;
+  }
+}
+
 @media screen and (min-width: 1440px) {
   .highlight {
     font-size: 1.2em;
