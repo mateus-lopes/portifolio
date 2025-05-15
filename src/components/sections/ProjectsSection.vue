@@ -1,9 +1,13 @@
 <script setup lang="ts">
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Pagination, Navigation } from 'swiper/modules'
+import { computed } from 'vue'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
+
+// Importando o composable useScreen
+import { useScreen } from '../../composables/useScreen'
 
 const characterLimit = 200
 
@@ -13,6 +17,14 @@ const limitCharacters = (text: string, limit: number = characterLimit): string =
 }
 
 const modules = [Pagination, Navigation]
+
+// Usando o composable para detectar o tamanho da tela
+const { breakpoint } = useScreen()
+
+// Computando se a navegação deve ser exibida com base no breakpoint
+const showNavigation = computed(() => {
+  return breakpoint.value === 'md' // Apenas mostrar navegação em desktop (md)
+})
 </script>
 
 <template>
@@ -20,7 +32,7 @@ const modules = [Pagination, Navigation]
     <div class="apps-content">
       <Swiper
         :modules="modules"
-        :navigation="true"
+        :navigation="showNavigation"
         :space-between="20"
         :slidesPerView="1"
         class="project-slider"
@@ -29,7 +41,7 @@ const modules = [Pagination, Navigation]
       >
         <SwiperSlide>
           <div class="project">
-            <img src="../../assets/images/projects/4.png" alt="" />
+            <img src="/projects/4.png" alt="" />
             <div>
               <h3>{{ $t('project1') }}</h3>
               <p>{{ limitCharacters($t('project1Description')) }}</p>
@@ -44,7 +56,7 @@ const modules = [Pagination, Navigation]
         </SwiperSlide>
         <SwiperSlide>
           <div class="project">
-            <img src="../../assets/images/projects/3.png" alt="" />
+            <img src="/projects/3.png" alt="" />
             <div>
               <h3>{{ $t('project2') }}</h3>
               <p>{{ limitCharacters($t('project2Description')) }}</p>
@@ -59,7 +71,7 @@ const modules = [Pagination, Navigation]
         </SwiperSlide>
         <SwiperSlide>
           <div class="project">
-            <img src="../../assets/images/projects/2.png" alt="" />
+            <img src="/projects/2.png" alt="" />
             <div>
               <h3>{{ $t('project3') }}</h3>
               <p>{{ limitCharacters($t('project3Description')) }}</p>
@@ -74,7 +86,7 @@ const modules = [Pagination, Navigation]
         </SwiperSlide>
         <SwiperSlide>
           <div class="project">
-            <img src="../../assets/images/projects/1.png" alt="" />
+            <img src="/projects/1.png" alt="" />
             <div>
               <h3>{{ $t('project4') }}</h3>
               <p>{{ limitCharacters($t('project4Description')) }}</p>
@@ -89,7 +101,7 @@ const modules = [Pagination, Navigation]
         </SwiperSlide>
         <SwiperSlide>
           <div class="project">
-            <img src="../../assets/images/projects/5.png" alt="" />
+            <img src="/projects/5.png" alt="" />
             <div>
               <h3>{{ $t('project5') }}</h3>
               <p>{{ limitCharacters($t('project5Description')) }}</p>
@@ -105,7 +117,8 @@ const modules = [Pagination, Navigation]
       </Swiper>
 
       <!-- <span class="comming-soon">{{ $t('comminSoon') }}</span> -->
-      <span class="hint">
+      <!-- Dica de arrastar para dispositivos móveis (exibida apenas em mobile) -->
+      <span class="hint" v-if="!showNavigation">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           height="24px"
@@ -142,7 +155,6 @@ const modules = [Pagination, Navigation]
   margin-bottom: 1em;
 }
 .apps-content p {
-  max-width: 80%;
   color: #555;
   text-align: left;
   margin-bottom: 2em;
@@ -152,8 +164,8 @@ const modules = [Pagination, Navigation]
   display: flex !important;
   justify-content: center;
   align-items: center;
-  max-width: 70%;
   height: 500px;
+  margin: 0;
 }
 
 .project {
@@ -165,21 +177,21 @@ const modules = [Pagination, Navigation]
 }
 
 .project img {
-  width: 70%;
+  width: 90%;
   height: auto;
   border-radius: 1em;
   border: 1px solid #0000004a;
   margin: 0 auto;
 }
 .project h3 {
-  width: 70%;
+  width: 90%;
   display: block;
   text-align: left;
   font-size: 1.5em;
   margin: 0.5em auto;
 }
 .project p {
-  width: 70%;
+  width: 90%;
   display: block;
   color: #555;
   text-align: left;
@@ -187,16 +199,12 @@ const modules = [Pagination, Navigation]
   text-overflow: ellipsis;
   line-height: 1.5;
   margin: 0 auto;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 4;
-  line-clamp: 4;
 }
 
 .view-btn {
   display: block;
   padding: 0.5rem 1rem;
-  width: 70%;
+  width: 90%;
   margin: 1em auto;
   color: #000;
   text-decoration: underline;
@@ -212,11 +220,11 @@ const modules = [Pagination, Navigation]
 .comming-soon {
   font-size: 2em;
   color: #000;
-  font-weight: 700;
+  font-weight: 900;
   margin-top: 2em;
   animation: text-shadow-swap 5s infinite ease-in-out;
 }
-@media (max-height: 700px) {
+@media (max-height: 900px) {
   .apps {
     margin-top: 10em;
   }
@@ -225,5 +233,32 @@ const modules = [Pagination, Navigation]
 .hint {
   display: flex;
   gap: 0.5em;
+}
+
+@media screen and (min-width: 1000px) {
+  .project-slider {
+    width: 70%;
+  }
+
+  .project {
+    width: 70%;
+    margin: 0 auto;
+  }
+
+  .project img {
+    width: 100%;
+  }
+
+  .project h3 {
+    width: 100%;
+  }
+
+  .project p {
+    width: 100%;
+  }
+
+  .view-btn {
+    width: 100%;
+  }
 }
 </style>

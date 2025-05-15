@@ -12,7 +12,6 @@
   border-top: 1px solid #0000001a;
   text-align: center;
   padding-top: 1em;
-  margin-bottom: 10em;
 }
 
 .link {

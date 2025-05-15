@@ -42,6 +42,12 @@
 </template>
 
 <style scoped>
+.decoration {
+  display: hidden !important;
+  overflow: hidden;
+  visibility: hidden;
+}
+
 ul {
   padding: 0;
   margin: 0;
@@ -211,6 +217,12 @@ ul {
 @media screen and (min-width: 1000px) {
   .highlight-content h1 {
     font-size: 3.8em;
+  }
+
+  .decoration {
+    display: flex;
+    overflow: visible;
+    visibility: visible;
   }
 
   .t2 {

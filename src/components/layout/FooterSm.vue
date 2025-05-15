@@ -13,3 +13,9 @@ import FooterSignature from './footer/FooterSignature.vue'
     </footer>
   </section>
 </template>
+
+<style scoped>
+#contact {
+  margin-bottom: 10em;
+}
+</style>

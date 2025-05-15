@@ -38,7 +38,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <CursorComp />
+  <!-- <CursorComp /> -->
   <header :class="{ shrink: storeLayout.isShrunk }">
     <div class="logo">
       <h1>
