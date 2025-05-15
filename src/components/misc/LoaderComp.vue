@@ -31,6 +31,10 @@ const props = defineProps({
   justify-content: center;
   align-items: center;
   z-index: 10000;
+  /* Add hardware acceleration to improve performance */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  will-change: opacity;
 }
 
 .loader {
@@ -46,6 +50,10 @@ const props = defineProps({
   border-radius: 50%;
   background-color: #3498db;
   animation: bounce 0.6s infinite alternate;
+  /* Add hardware acceleration for animations */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  will-change: transform;
 }
 
 .ball:nth-child(1) {

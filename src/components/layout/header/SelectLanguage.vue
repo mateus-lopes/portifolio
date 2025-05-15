@@ -1,9 +1,14 @@
 <script lang="ts" setup>
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 import { useLanguageStore } from '../../../stores/language'
 import LoaderComp from '../../misc/LoaderComp.vue'
+// Import images directly to ensure proper bundling
+import brazilFlag from '../../../assets/images/countries/brazil.png'
+import usaFlag from '../../../assets/images/countries/eua.png'
 
 const storeLanguage = useLanguageStore()
+const brFlag = ref(brazilFlag)
+const enFlag = ref(usaFlag)
 
 onMounted(() => {
   storeLanguage.setLanguage(storeLanguage.getLanguage())
@@ -15,7 +20,7 @@ onMounted(() => {
   <div class="div-language">
     <button class="language-icon" @click="storeLanguage.setLanguage('pt')">
       <img
-        src="../../../assets/images/countries/brazil.png"
+        :src="brFlag"
         alt="Portuguese"
         :class="{
           active: storeLanguage.getLanguage() === 'pt',
@@ -24,7 +29,7 @@ onMounted(() => {
     </button>
     <button class="language-icon" @click="storeLanguage.setLanguage('en')">
       <img
-        src="../../../assets/images/countries/eua.png"
+        :src="enFlag"
         alt="English"
         :class="{
           active: storeLanguage.getLanguage() === 'en',

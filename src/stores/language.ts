@@ -14,12 +14,15 @@ export const useLanguageStore = defineStore('language', () => {
   }
 
   const setLanguage = (lang: string) => {
-    loading.value = true
-    locale.value = lang
-    localStorage.setItem('language', lang)
-    setTimeout(() => {
-      loading.value = false
-    }, 700)
+    // Only show loading and change language if it's actually changing
+    if (locale.value !== lang) {
+      loading.value = true
+      locale.value = lang
+      localStorage.setItem('language', lang)
+      setTimeout(() => {
+        loading.value = false
+      }, 700)
+    }
   }
 
   const getLanguage = () => locale.value

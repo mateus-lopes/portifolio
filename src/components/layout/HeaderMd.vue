@@ -24,11 +24,15 @@ const handleScroll = () => {
 
 onMounted(() => {
   const sections = document.querySelectorAll('section')
+  // Optimize observer for better performance
   observer = new IntersectionObserver(updateCurrentSection, {
-    threshold: 0.6,
+    threshold: 0.3,
+    rootMargin: '0px',
   })
   sections.forEach((section) => observer.observe(section))
-  window.addEventListener('scroll', handleScroll)
+
+  // Use passive event listener for better scroll performance
+  window.addEventListener('scroll', handleScroll, { passive: true })
 })
 
 onUnmounted(() => {
