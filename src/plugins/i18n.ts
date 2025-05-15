@@ -56,7 +56,7 @@ const messages = {
       'A digital platform that provides access to histology images and educational content for veterinary medicine students. The project aims to enhance learning through interactive visualization of tissue samples.',
 
     // Contact Section
-    contact1: 'Do you want to start a project?',
+    contact1: 'I love to collaborate, discuss ideas, and grow together.',
     contact2: "Let's Talk...",
     contact3: 'Get in touch',
 
@@ -118,7 +118,7 @@ const messages = {
       'Uma plataforma digital que fornece acesso a imagens de histologia e conteúdo educacional para estudantes de medicina veterinária. O projeto visa melhorar o aprendizado através da visualização interativa de amostras de tecidos.',
 
     // Seção Contato
-    contact1: 'Quer iniciar um projeto?',
+    contact1: 'Gosto de colaborar, discutir ideias e crescer junto.',
     contact2: 'Vamos conversar...',
     contact3: 'Entre em contato',
 

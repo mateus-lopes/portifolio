@@ -2,9 +2,15 @@
   <section class="contact-content">
     <h3>{{ $t('contact1') }}</h3>
     <h2>{{ $t('contact2') }}</h2>
-    <a href="#" class="btn-stroke2 mt-2">{{ $t('contact3') }}</a>
+    <a href="#" @click="openWhats" class="btn-stroke2 mt-2">{{ $t('contact3') }}</a>
   </section>
 </template>
+
+<script setup lang="ts">
+const openWhats = () => {
+  window.open('https://api.whatsapp.com/send?phone=5547999180331', '_blank')
+}
+</script>
 
 <style scoped>
 .contact-content {
@@ -55,11 +61,9 @@
 }
 
 @media screen and (min-width: 700px) {
-
   .contact-content h2 {
     font-size: 4em;
   }
-  
 }
 
 @media screen and (min-width: 1440px) {
