@@ -261,4 +261,10 @@ const showNavigation = computed(() => {
     width: 100%;
   }
 }
+
+@media screen and (max-width: 400px) {
+  .project-slider {
+    margin-top: 4em;
+  }
+}
 </style>

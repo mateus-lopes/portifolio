@@ -258,7 +258,7 @@ ul {
 
 @media screen and (max-width: 400px) {
   .social-medias {
-    margin-top: 3em;
+    margin-top: 3.5em;
   }
 }
 
