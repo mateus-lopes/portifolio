@@ -1,0 +1,1 @@
+import{C as e,S as t,F as a}from"./FooterSignature-0F6EXn4p.js";import{d as c,c as s,o as r,a as n,h as o,_}from"./index-Br4SLEnE.js";const p={id:"contact"},m=c({__name:"FooterSm",setup(d){return(i,l)=>(r(),s("section",p,[n("footer",null,[o(e),o(t),o(a)])]))}}),S=_(m,[["__scopeId","data-v-36825207"]]);export{S as default};
